@@ -157,6 +157,12 @@ a:hover,
 	border-right-color: var(--hack-accent) !important;
 }
 
+@media (max-width: 767px) {
+	#typewriter {
+		font-size: clamp(1.6rem, 7vw, 2.3rem) !important;
+	}
+}
+
 @keyframes blink-caret {
 	from,
 	to {

@@ -1,0 +1,562 @@
+/**
+ * Danises — high-tech / terminal aesthetic
+ * Homepage hero image kept: cyber-network-technology-3400789.jpg (set by Elementor inline CSS)
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@500;600;700&display=swap");
+
+:root {
+	/* Aligned with original theme blues: #1A6C7A, #258393, #6EC1E4 */
+	--hack-bg: #0f1f2e;
+	--hack-bg-elevated: #152a3d;
+	--hack-surface: #1a3350;
+	--hack-border: rgba(110, 193, 228, 0.28);
+	--hack-glow: rgba(110, 193, 228, 0.45);
+	--hack-text: #d4e8f2;
+	--hack-muted: #7ab0c8;
+	--hack-accent: #6ec1e4;
+	--hack-accent-dim: #4a9db8;
+	--hack-cyan: #8dd4f0;
+}
+
+/* Subtle scanlines + vignette */
+body::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: 9998;
+	background:
+		repeating-linear-gradient(
+			0deg,
+			transparent,
+			transparent 2px,
+			rgba(15, 40, 60, 0.14) 2px,
+			rgba(15, 40, 60, 0.14) 4px
+		),
+		radial-gradient(ellipse at center, transparent 40%, rgba(8, 24, 42, 0.5) 100%);
+	opacity: 0.35;
+	mix-blend-mode: overlay;
+}
+
+html,
+.site,
+#page,
+.ast-plain-container,
+.ast-page-builder-template .site-content,
+.single .site-content,
+.page .site-content {
+	background-color: var(--hack-bg) !important;
+}
+
+body {
+	background-color: var(--hack-bg) !important;
+	color: var(--hack-text) !important;
+	font-family: "JetBrains Mono", ui-monospace, "Cascadia Code", "Fira Code", monospace !important;
+	line-height: 1.65;
+}
+
+/* Legacy wp-custom-css targeted menu items (were black text) */
+#menu-item-1573,
+#menu-item-1613,
+#menu-item-1625,
+#menu-item-1626 {
+	color: var(--hack-accent) !important;
+	background-color: rgba(110, 193, 228, 0.08) !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.elementor-heading-title {
+	font-family: "Orbitron", "JetBrains Mono", sans-serif !important;
+	letter-spacing: 0.04em;
+}
+
+a,
+.menu-link,
+.elementor-item {
+	color: var(--hack-accent) !important;
+	text-decoration: none;
+	transition: color 0.2s, text-shadow 0.2s;
+}
+
+a:hover,
+.menu-link:hover {
+	color: var(--hack-cyan) !important;
+	text-shadow: 0 0 12px var(--hack-glow);
+}
+
+/* Header */
+#masthead,
+.ast-primary-header-bar,
+.ast-main-header-wrap,
+.site-header {
+	background: linear-gradient(180deg, #122536 0%, #0f1f2e 100%) !important;
+	border-bottom: 1px solid var(--hack-border) !important;
+	box-shadow: 0 0 24px rgba(110, 193, 228, 0.08);
+}
+
+.site-title,
+.site-title a,
+.ast-site-identity .site-description {
+	color: var(--hack-muted) !important;
+}
+
+/* Nav */
+.main-header-menu a,
+.ast-mobile-header-content .menu-link {
+	color: var(--hack-accent) !important;
+}
+
+.main-header-menu .current-menu-item > a {
+	color: var(--hack-cyan) !important;
+	text-shadow: 0 0 10px var(--hack-glow);
+}
+
+/* Content shell */
+#content,
+.site-content,
+.ast-container,
+.ast-separate-container .ast-article-single,
+.ast-separate-container .ast-article-inner {
+	background-color: transparent !important;
+}
+
+.ast-separate-container .ast-article-single,
+.ast-plain-container .site-content .entry-content {
+	background: var(--hack-bg-elevated) !important;
+	border: 1px solid var(--hack-border);
+	border-radius: 2px;
+	box-shadow: 0 0 0 1px rgba(110, 193, 228, 0.06);
+}
+
+/* Homepage hero: keep background image, retint overlay (does not remove photo) */
+.elementor-30 .elementor-element.elementor-element-5939a86c {
+	background-color: #0a1624 !important;
+}
+
+.elementor-30 .elementor-element.elementor-element-5939a86c > .elementor-background-overlay {
+	background-image: none !important;
+	background: linear-gradient(
+		160deg,
+		rgba(26, 108, 122, 0.55) 0%,
+		rgba(15, 60, 90, 0.78) 45%,
+		rgba(10, 35, 55, 0.88) 100%
+	) !important;
+	opacity: 0.6 !important;
+	mix-blend-mode: multiply;
+}
+
+/* Typewriter hero text */
+#typewriter {
+	font-family: "JetBrains Mono", monospace !important;
+	font-size: clamp(1.25rem, 4vw, 2.25rem) !important;
+	color: var(--hack-accent) !important;
+	text-shadow:
+		0 0 20px rgba(110, 193, 228, 0.55),
+		0 0 40px rgba(141, 212, 240, 0.25) !important;
+	border-right-color: var(--hack-accent) !important;
+}
+
+@keyframes blink-caret {
+	from,
+	to {
+		border-color: transparent;
+	}
+	50% {
+		border-color: var(--hack-accent);
+	}
+}
+
+/* Buttons */
+.elementor-button,
+.elementor-button-link {
+	background: transparent !important;
+	border: 1px solid var(--hack-accent) !important;
+	color: var(--hack-accent) !important;
+	font-family: "Orbitron", sans-serif !important;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	box-shadow:
+		0 0 0 1px rgba(110, 193, 228, 0.22),
+		0 0 20px rgba(110, 193, 228, 0.14);
+}
+
+.elementor-button:hover,
+.elementor-button-link:hover {
+	background: rgba(110, 193, 228, 0.12) !important;
+	color: var(--hack-cyan) !important;
+	border-color: var(--hack-cyan) !important;
+	box-shadow: 0 0 28px rgba(141, 212, 240, 0.28);
+}
+
+/* Sections & widgets */
+.elementor-section {
+	background-color: transparent !important;
+}
+
+.elementor-widget-text-editor,
+.elementor-widget-heading,
+.entry-content,
+.entry-content p {
+	color: var(--hack-text) !important;
+}
+
+.elementor-widget-text-editor a {
+	color: var(--hack-cyan) !important;
+}
+
+/* Post grid / cards */
+article.post,
+.radius-frontend .rttpg-block,
+.rttpg-block-wrapper {
+	background: var(--hack-surface) !important;
+	border: 1px solid var(--hack-border) !important;
+	color: var(--hack-text) !important;
+}
+
+.radius-frontend .rttpg-block .entry-title a {
+	color: var(--hack-accent) !important;
+}
+
+/* Images: slight tech tint */
+.entry-content img,
+.elementor-widget-image img {
+	filter: saturate(1.05) contrast(1.05);
+	border-radius: 2px;
+}
+
+/* Footer */
+#colophon,
+footer.site-footer,
+.elementor-location-footer {
+	background: linear-gradient(180deg, #0c1826 0%, #081018 100%) !important;
+	border-top: 1px solid var(--hack-border) !important;
+	color: var(--hack-muted) !important;
+}
+
+#colophon a {
+	color: var(--hack-accent-dim) !important;
+}
+
+/* Forms & inputs */
+input,
+textarea,
+select {
+	background: var(--hack-bg-elevated) !important;
+	border: 1px solid var(--hack-border) !important;
+	color: var(--hack-text) !important;
+	font-family: inherit !important;
+}
+
+/* Tables / code */
+code,
+pre {
+	background: #122536 !important;
+	border: 1px solid var(--hack-border);
+	color: var(--hack-cyan);
+}
+
+/* Mobile menu */
+.ast-mobile-header-content {
+	background: var(--hack-bg-elevated) !important;
+	border: 1px solid var(--hack-border);
+}
+
+/* --- Homepage: “Tech Talk / You will find…” feature block (readability + image) --- */
+.elementor-30 .elementor-element-be91f87 {
+	padding-top: 2.5rem !important;
+	padding-bottom: 2.5rem !important;
+	padding-left: 1rem !important;
+	padding-right: 1rem !important;
+	background: linear-gradient(
+		165deg,
+		rgba(21, 42, 61, 0.85) 0%,
+		rgba(15, 31, 46, 0.65) 50%,
+		rgba(12, 26, 40, 0.75) 100%
+	) !important;
+	border: 1px solid var(--hack-border);
+	border-radius: 12px;
+	box-shadow:
+		0 0 0 1px rgba(110, 193, 228, 0.08),
+		0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.elementor-30 .elementor-element-be91f87 .elementor-heading-title {
+	color: var(--hack-text) !important;
+	text-shadow: 0 0 24px rgba(110, 193, 228, 0.35);
+}
+
+.elementor-30 .elementor-element-be91f87 .elementor-image-box-title {
+	color: var(--hack-cyan) !important;
+	font-family: "Orbitron", "JetBrains Mono", sans-serif !important;
+	font-size: 1.05rem !important;
+	font-weight: 600 !important;
+	letter-spacing: 0.08em;
+	text-transform: none;
+	margin-bottom: 0.35rem !important;
+	text-shadow: 0 0 18px rgba(141, 212, 240, 0.35);
+}
+
+.elementor-30 .elementor-element-be91f87 .elementor-image-box-description {
+	color: var(--hack-text) !important;
+	font-size: 0.95rem !important;
+	line-height: 1.55 !important;
+	opacity: 1 !important;
+}
+
+.elementor-30 .elementor-element-c439b15 .elementor-heading-title {
+	color: var(--hack-text) !important;
+	text-shadow: 0 0 20px rgba(110, 193, 228, 0.3);
+	margin-top: 1rem !important;
+}
+
+/* Single-column centered layout (image removed) */
+.elementor-30 .elementor-element-be91f87 > .elementor-container {
+	max-width: 720px !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+.elementor-30 .elementor-element.elementor-element-a891d6c > .elementor-element-populated {
+	margin: 0 auto !important;
+	--e-column-margin-left: 0 !important;
+	--e-column-margin-right: 0 !important;
+}
+
+.elementor-30 .elementor-element-be91f87 .elementor-inner-section {
+	width: 100%;
+	max-width: 640px;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+.elementor-30 .elementor-element-be91f87 .elementor-element-ddcafdf {
+	text-align: center !important;
+}
+
+/* Icon pods: Elementor inline used white circles — retint to match theme */
+.elementor-30 .elementor-element-be91f87 .elementor-icon-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.elementor-30 .elementor-element-be91f87 .elementor-element-83c1df5 > .elementor-widget-container,
+.elementor-30 .elementor-element-be91f87 .elementor-element-d6eb5f5 > .elementor-widget-container,
+.elementor-30 .elementor-element-be91f87 .elementor-element-2cd102e > .elementor-widget-container {
+	background: linear-gradient(
+		165deg,
+		rgba(110, 193, 228, 0.14) 0%,
+		rgba(12, 28, 45, 0.92) 55%,
+		rgba(8, 20, 35, 0.98) 100%
+	) !important;
+	border: 2px solid rgba(110, 193, 228, 0.5) !important;
+	box-shadow:
+		0 0 28px rgba(110, 193, 228, 0.12),
+		inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+.elementor-30 .elementor-element-be91f87 .elementor-element-83c1df5 .elementor-icon,
+.elementor-30 .elementor-element-be91f87 .elementor-element-d6eb5f5 .elementor-icon,
+.elementor-30 .elementor-element-be91f87 .elementor-element-2cd102e .elementor-icon {
+	background: transparent !important;
+	border: none !important;
+	width: auto !important;
+	height: auto !important;
+	box-shadow: none !important;
+	color: var(--hack-accent) !important;
+}
+
+.elementor-30 .elementor-element-be91f87 .elementor-element-83c1df5 .elementor-icon svg,
+.elementor-30 .elementor-element-be91f87 .elementor-element-d6eb5f5 .elementor-icon svg,
+.elementor-30 .elementor-element-be91f87 .elementor-element-2cd102e .elementor-icon svg {
+	fill: currentColor !important;
+	filter: drop-shadow(0 0 8px rgba(110, 193, 228, 0.45));
+}
+
+/* Beat Elementor inline #212121 / #424242 on these widgets */
+.elementor-30 .elementor-element.elementor-element-ec1782c .elementor-image-box-title,
+.elementor-30 .elementor-element.elementor-element-871ec59 .elementor-image-box-title,
+.elementor-30 .elementor-element.elementor-element-f5e9cce .elementor-image-box-title {
+	color: var(--hack-cyan) !important;
+}
+
+.elementor-30 .elementor-element.elementor-element-ec1782c .elementor-image-box-description,
+.elementor-30 .elementor-element.elementor-element-871ec59 .elementor-image-box-description,
+.elementor-30 .elementor-element.elementor-element-f5e9cce .elementor-image-box-description {
+	color: var(--hack-text) !important;
+}
+
+.elementor-30 .elementor-element-ddcafdf .elementor-heading-title {
+	color: var(--hack-text) !important;
+	text-shadow: 0 0 22px rgba(110, 193, 228, 0.3);
+}
+
+/* Elementor inline forces white body on homepage */
+body.elementor-page-30 {
+	background-color: var(--hack-bg) !important;
+}
+
+/* Contact page: space above footer + footer pinned to bottom when content is short */
+body.page-id-33 #page.hfeed.site {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+body.page-id-33 #content.site-content {
+	flex: 1 0 auto;
+}
+
+body.page-id-33 .entry-content {
+	padding-bottom: clamp(2.5rem, 6vh, 4.5rem);
+}
+
+body.page-id-33 .elementor-33 .elementor-element-ab62368 {
+	padding-bottom: 2rem !important;
+}
+
+body.page-id-33 .elementor-element-contact-note .elementor-widget-container {
+	max-width: 760px;
+	margin: 0 auto 1rem;
+	text-align: center;
+}
+
+/* Tech Blog (All Blog Posts, page 2095) — The Post Grid: cyan headings, blue-tinted cards, readable text */
+body.page-id-2095 .tpg-widget-heading,
+body.page-id-2095 .tpg-widget-heading span {
+	color: var(--hack-cyan) !important;
+	text-shadow: 0 0 18px rgba(110, 193, 228, 0.22);
+}
+
+body.page-id-2095 .tpg-widget-heading-line {
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(110, 193, 228, 0.55),
+		transparent
+	) !important;
+	opacity: 1 !important;
+}
+
+body.page-id-2095 .rt-holder.tpg-post-holder,
+body.page-id-2095 .tpg-post-holder {
+	background: linear-gradient(
+		165deg,
+		rgba(110, 193, 228, 0.42) 0%,
+		rgba(74, 157, 184, 0.52) 52%,
+		rgba(37, 131, 147, 0.44) 100%
+	) !important;
+	background-color: rgba(74, 157, 184, 0.48) !important;
+	border: 1px solid rgba(110, 193, 228, 0.62) !important;
+	border-radius: 10px;
+	box-shadow: 0 6px 28px rgba(0, 0, 0, 0.28);
+	overflow: hidden;
+}
+
+body.page-id-2095 .rt-detail.rt-el-content-wrapper {
+	background: transparent !important;
+}
+
+body.page-id-2095 .tpg-post-holder .entry-title,
+body.page-id-2095 .tpg-post-holder .entry-title a {
+	color: #081a24 !important;
+}
+
+body.page-id-2095 .tpg-post-holder .entry-title a:hover {
+	color: #0d4f63 !important;
+}
+
+body.page-id-2095 .tpg-excerpt,
+body.page-id-2095 .tpg-excerpt-inner {
+	color: #102b37 !important;
+}
+
+body.page-id-2095 .post-meta-tags,
+body.page-id-2095 .post-meta-tags a {
+	color: #1f4f60 !important;
+}
+
+body.page-id-2095 .post-meta-tags a:hover {
+	color: #0a3f4e !important;
+}
+
+body.page-id-2095 .read-more a {
+	color: #0a3f4e !important;
+	border-color: rgba(37, 131, 147, 0.82) !important;
+	background: rgba(141, 212, 240, 0.38) !important;
+}
+
+body.page-id-2095 .read-more a:hover {
+	background: rgba(141, 212, 240, 0.52) !important;
+	color: #062a33 !important;
+	border-color: #1a6c7a !important;
+}
+
+body.page-id-2095 .hfe-search-form__input {
+	color: var(--hack-text) !important;
+}
+
+/* Single blog posts — improve contrast and remove underline styling artifacts */
+body.single-post .ast-article-single,
+body.single-post .ast-article-single .ast-post-format {
+	background: linear-gradient(
+		180deg,
+		rgba(21, 42, 61, 0.94) 0%,
+		rgba(15, 31, 46, 0.94) 100%
+	) !important;
+	border: 1px solid var(--hack-border) !important;
+}
+
+body.single-post .entry-header .entry-title,
+body.single-post .entry-header .entry-title a {
+	color: var(--hack-cyan) !important;
+	text-shadow: 0 0 14px rgba(110, 193, 228, 0.2);
+}
+
+body.single-post .entry-content,
+body.single-post .entry-content p,
+body.single-post .entry-content li {
+	color: #d9ebf5 !important;
+}
+
+body.single-post .entry-meta,
+body.single-post .entry-meta a {
+	color: var(--hack-muted) !important;
+}
+
+/* Remove visual underlines/highlight boxes while keeping text */
+body.single-post .entry-content a,
+body.single-post .entry-content u,
+body.single-post .entry-content ins {
+	text-decoration: none !important;
+	border-bottom: none !important;
+	box-shadow: none !important;
+}
+
+body.single-post .entry-content mark {
+	background: transparent !important;
+	color: inherit !important;
+	padding: 0 !important;
+}
+
+/* Remove inline WP highlight spans used in old posts */
+body.single-post .entry-content span[style*="background-color"],
+body.single-post .entry-content span[style*="background:"],
+body.single-post .entry-content div[style*="background-color"],
+body.single-post .entry-content p[style*="background-color"] {
+	background: transparent !important;
+	color: inherit !important;
+}
+
+/* Final underline cleanup across blog index + single posts */
+body.page-id-2095 a,
+body.page-id-2095 .entry-title a,
+body.page-id-2095 .read-more a,
+body.single-post a,
+body.single-post .entry-title a,
+body.single-post .entry-content a {
+	text-decoration: none !important;
+	border-bottom: 0 !important;
+	box-shadow: none !important;
+}
